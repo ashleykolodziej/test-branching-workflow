@@ -24,11 +24,9 @@ jobs:
       - uses: actions/checkout@v2
       
       # Create a tag
-      - name: Create Tag
-        id: create_tag
-        uses: jaywcjlove/create-tag-action@main
+      - name:  'Automated Version Bump'
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ 'dev-' && steps.create_tag.outputs.version }}
-          tag: ${{ 'dev-' && steps.create_tag.outputs.version }}
-          package-path: ./package.json
+          tag-prefix:  'dev-'
