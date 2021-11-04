@@ -23,10 +23,17 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: nyaa8/package-version@v1
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_depth: 10
+          version: ${{ env.PACKAGE_VERSION }}
+          path: ./CHANGELOG.md
       - uses: ncipollo/release-action@v1
         with:
           allowUpdates: false
-          bodyFile: "CHANGELOG.md"
+          body: ${{ steps.changelog_reader.outputs.changes }}
           prerelease: true
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 'dev-${{ env.PACKAGE_VERSION }}'
