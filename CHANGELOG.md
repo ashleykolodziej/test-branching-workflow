@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.0.2
 
 - Enables stylelint and automatic style fixes using the following commands:
   - `npm run styles:lint` - Run a linting report.
