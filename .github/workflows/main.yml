@@ -29,6 +29,6 @@ jobs:
         uses: jaywcjlove/create-tag-action@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ 'dev-' + steps.create_tag.outputs.version }}
-          tag: ${{ 'dev-' + steps.create_tag.outputs.version }}
+          name: ${{ 'dev-' . steps.create_tag.outputs.version }}
+          tag: ${{ 'dev-' . steps.create_tag.outputs.version }}
           package-path: ./package.json
