@@ -28,7 +28,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Print Version Check
-        run: echo ${{ steps.checkTag.outputs.exists }}
+        run: |
+          echo ${{ steps.checkTag.outputs.exists }}
+          echo ${{ steps.checkTag.outputs.exists == true }}
       - name: Check Version
         if: ${{ steps.checkTag.outputs.exists == true }}
         uses: actions/github-script@v3
