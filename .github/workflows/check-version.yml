@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Check Versions
+name: Ready for Release
 
 # Controls when the workflow will run
 on:
@@ -10,8 +10,8 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
-    name: Check Version
+  checkchangelog:
+    name: Check Changelog
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -27,6 +27,15 @@ jobs:
           validation_depth: 10
           version: ${{ env.PACKAGE_VERSION }}
           path: ./CHANGELOG.md
+          
+  checkversion:
+    name: Check Version
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: nyaa8/package-version@v1
       - name: Check Version
         if: ${{ steps.checkTag.outputs.exists }} == false
         uses: actions/github-script@v3
