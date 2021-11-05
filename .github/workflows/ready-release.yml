@@ -17,6 +17,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: nyaa8/package-version@v1
+      - name: Print Version Check
+        run: echo ${{ steps.checkTag.outputs.exists }}
       - name: Check Version
         if: ${{ steps.checkTag.outputs.exists }} == false
         uses: actions/github-script@v3
