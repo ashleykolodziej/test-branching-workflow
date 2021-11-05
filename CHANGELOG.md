@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.6]
+
+- Updated the yaml
+- Made useless function
+
 ## [0.0.5]
 
 - Enables stylelint and automatic style fixes using the following commands:

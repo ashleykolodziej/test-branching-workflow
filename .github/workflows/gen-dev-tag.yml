@@ -1,4 +1,4 @@
-name: Generate Pre-Release
+name: Generate Development Tag
 
 # Controls when the workflow will run
 on:
@@ -28,7 +28,8 @@ jobs:
           validation_depth: 10
           version: ${{ env.PACKAGE_VERSION }}
           path: ./CHANGELOG.md
-      - uses: ncipollo/release-action@v1
+      - name: Create Development Tag
+        uses: ncipollo/release-action@v1
         with:
           allowUpdates: false
           body: ${{ steps.changelog_reader.outputs.changes }}
