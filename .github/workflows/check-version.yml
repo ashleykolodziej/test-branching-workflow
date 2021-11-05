@@ -27,22 +27,7 @@ jobs:
           validation_depth: 10
           version: ${{ env.PACKAGE_VERSION }}
           path: ./CHANGELOG.md
-      - uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: false
-          body: ${{ steps.changelog_reader.outputs.changes }}
-          prerelease: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: 'dev-${{ env.PACKAGE_VERSION }}'
-      - uses: mukunku/tag-exists-action@v1.0.0
-        id: checkTag
-        with: 
-          tag: 'dev-${{ env.PACKAGE_VERSION }}'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: echo ${{ steps.checkTag.outputs.exists }}
-      - name: Get Changelog Entry
+      - name: Check Version
         if: ${{ steps.checkTag.outputs.exists }} == false
         uses: actions/github-script@v3
         with:
