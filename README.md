@@ -1,4 +1,4 @@
-# [Project Name] asdf
+# [Project Name] asd
 
 A starter template for child themes of the Responsive Framework.
 
