@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.8]
+
+- Updated action to check for version/changelog after merge.
+
 ## [0.0.7]
 
 - Removed hello.
