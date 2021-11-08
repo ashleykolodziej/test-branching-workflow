@@ -58,7 +58,3 @@ define( 'BU_RESPONSIVE_SIDEBAR_POSITION', 'right' );
  */
 require_once 'php-dev/dev-functions.php';
 add_filter( 'after_setup_theme', 'dev_sections' );
-
-function just_hello() {
-	echo 'hello';
-}
