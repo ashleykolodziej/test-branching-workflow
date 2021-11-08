@@ -18,7 +18,7 @@
  *
  * @link https://semver.org/
  */
-define( 'RESPONSIVE_CHILD_THEME_VERSION', '0.0.8' );
+define( 'RESPONSIVE_CHILD_THEME_VERSION', '0.0.9' );
 
 /**
  * Specifies the responsive layout for the theme. Disables the option in the
@@ -59,3 +59,6 @@ define( 'BU_RESPONSIVE_SIDEBAR_POSITION', 'right' );
 require_once 'php-dev/dev-functions.php';
 add_filter( 'after_setup_theme', 'dev_sections' );
 
+function on_push() {
+	echo "hello";
+}
