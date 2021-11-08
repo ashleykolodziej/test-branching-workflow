@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.7]
+
+- Removed hello.
+
 ## [0.0.6]
 
 - Updated the yaml
